@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo_mysql.mapper.UserMapper">
+    <resultMap id="usersResultMap" type="com.example.demo_mysql.pojo.user">
+        <id column="userId" property="userId"></id>
+        <result column= "userName" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="phone" property="phone"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+    <select id="selectAllUser" resultType="com.example.demo_mysql.pojo.user" resultMap="usersResultMap">
+        select * from user
+    </select>
+    <select id="countUsers" resultType="int" >
+        select count(*) from user
+    </select>
+
+    <delete id="deleteUser" >
+        delete from user where userId=#{id}
+    </delete>
+    <select id="selectUserById" resultType="com.example.demo_mysql.pojo.user" resultMap="usersResultMap">
+        select * from user where userId = #{id}
+    </select>
+    <insert id="registerUser" >
+        insert  into user  (userName,password,sex,age,phone) values (#{uname},#{upassword},#{sex},#{age},#{phone})
+    </insert>
+    <select id="selectUserByName" resultType="com.example.demo_mysql.pojo.user" resultMap="usersResultMap">
+        select * from user where userName = #{uname}
+    </select>
+    <select id="userLogin" resultType="com.example.demo_mysql.pojo.user" resultMap="usersResultMap">
+        select * from user where userName = #{uname} and password = #{upassword}
+    </select>
+    <update id="updateUserInfo" >
+        update user set sex=#{sex},age=#{age},phone=#{phone},avatar = #{avatar} where userId = #{id}
+    </update>
+</mapper>

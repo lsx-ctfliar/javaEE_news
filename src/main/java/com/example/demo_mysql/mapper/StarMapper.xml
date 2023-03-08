@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo_mysql.mapper.StarMapper">
+    <resultMap id="starResultMap" type="com.example.demo_mysql.pojo.star">
+        <id column="id" property="id"/>
+        <result column="userId" property="userId"/>
+        <result column="newsId" property="newsId"/>
+    </resultMap>
+
+    <select id="selectNewsByUid" resultType="com.example.demo_mysql.pojo.star" resultMap="starResultMap">
+        select * from star where userId = #{id}
+    </select>
+    <insert id="addNewStar">
+        insert into star (userId ,newsId) values ( #{uId}, #{nId})
+    </insert>
+     <delete id="deleteStar">
+         delete from star where newsId = #{nId} and userId = #{uId}
+     </delete>
+</mapper>

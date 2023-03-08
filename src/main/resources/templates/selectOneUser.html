@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+<form action="/news/selectOneUser" method="post">
+
+    <!--    id:<input type="text" name="id"><br>-->
+
+    用户id:<input type="text" name="userId"><br>
+    <!--    <%&#45;&#45;前后端 spring的数据传递，要求名字一样，在controller层的控制器也有一样名字的参数的时候可以传递，-->
+    <!--    不然的话会直接报错，，，读不出对应的参数&#45;&#45;%>-->
+    <br>
+    <div>
+        <input type="submit" value="查询">
+        <a href="/login">返回登录</a>
+    </div>
+
+</form>
+</body>
+</html>

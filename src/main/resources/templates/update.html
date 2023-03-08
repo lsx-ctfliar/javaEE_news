@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>updateMessage</title>
+</head>
+
+<body>
+
+
+<form action="/news/update" method="post">
+
+    <!--    id:<input type="text" name="id"><br>-->
+    头像字符串:<input type="text" name="avatar"><br>
+    性别:<input type="password" name="sex"><br>
+
+    年龄:<input type="text" name="age"><br>
+    电话:<input type="text" name="phone"><br>
+    <!--    <%&#45;&#45;前后端 spring的数据传递，要求名字一样，在controller层的控制器也有一样名字的参数的时候可以传递，-->
+    <!--    不然的话会直接报错，，，读不出对应的参数&#45;&#45;%>-->
+    <br>
+    <div>
+        <input type="submit" value="更新">
+        <a href="/login">返回登录</a>
+    </div>
+
+</form>
+
+
+</body>
+</html>

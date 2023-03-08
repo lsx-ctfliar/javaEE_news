@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo_mysql.mapper.HistoryMapper">
+    <resultMap id="historyResultMap" type="com.example.demo_mysql.pojo.history">
+        <id column="id" property="id"/>
+        <result column="userId" property="userId"/>
+        <result column="newsId" property="newsId"/>
+    </resultMap>
+
+    <select id="selectNewsByUid" resultType="com.example.demo_mysql.pojo.history" resultMap="historyResultMap">
+        select * from history where userId = #{id}
+    </select>
+
+<insert id="addHistory" >
+    insert into history(userId,newsId) values (#{uid},#{nid})
+</insert>
+
+</mapper>

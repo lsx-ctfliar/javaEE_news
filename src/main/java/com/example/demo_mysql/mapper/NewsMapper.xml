@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo_mysql.mapper.NewsMapper">
+    <resultMap id="newsResultMap" type="com.example.demo_mysql.pojo.news">
+        <id column="id" property="id"></id>
+        <result column= "newsId" property="newsId"/>
+        <result column="userId" property="userId"/>
+        <result column="newsTitle" property="newsTitle"/>
+        <result column="newsArticle" property="newsArticle"/>
+        <result column="newsImage" property="newsImage"/>
+        <result column="newsTime" property="newsTime"/>
+        <result column="newsYesCount" property="newsYesCount"/>
+        <result column="newsStartCount" property="newsStarCount"/>
+        <result column="userName" property="userName"/>
+        <result column="newsType" property="newsType"/>
+    </resultMap>
+    <select id="selectAllNewsByState" resultType="com.example.demo_mysql.pojo.news" resultMap="newsResultMap">
+        select * from news where newsType = #{state}
+    </select>
+    <select id="countNews" resultType="int">
+        select count(newsType = #{state}) from news
+    </select>
+    <select id="selectAllNewsById" resultType="com.example.demo_mysql.pojo.news" resultMap="newsResultMap">
+        select * from news where newsType = #{state} and newsId = #{id}
+    </select>
+    <select id="selectAllNewsByUserId" resultType="com.example.demo_mysql.pojo.news" resultMap="newsResultMap">
+        select * from news where userId = #{id}
+    </select>
+    <update id="updateNewsState" >
+        update news set newsType = #{state} where newsId = #{id}
+    </update>
+    <select id="selectOneNewsById" resultType="com.example.demo_mysql.pojo.news" resultMap="newsResultMap">
+        select * from news where newsId = #{id}
+    </select>
+    <delete id="deleteNews" >
+        delete from news where newsId=#{id}
+
+    </delete>
+    <delete id="deleteNewsByUser" >
+        delete from news where userId=#{id}
+    </delete>
+    <select id="selectAllNewsByUS" resultType="com.example.demo_mysql.pojo.news" resultMap="newsResultMap">
+        select * from news where newsType = #{state} and userId = #{id}
+    </select>
+    <update id="updateAllNews">
+        UPDATE news SET userId = #{uId}, newsTitle = #{nTile} ,newsArticle=#{nArticle},newsImage=#{nImage},newsTime=#{nTime},
+newsYesCount=#{nYC},newsStartCount=#{nSC} where newsId = #{newId}
+    </update>
+    <insert id="addNews">
+        insert into news (
+userId ,
+userName,
+newsTitle,
+newsArticle,
+newsImage,
+newsTime,
+newsYesCount ,
+newsStartCount ,
+newsType,
+newsKind
+                          ) values ( #{uId}, #{uName},#{ nTile},#{nArticle},#{nImage},#{nTime},
+                             #{nYC},#{nSC},#{nType},#{nKind})
+    </insert>
+</mapper>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/newsBack/adminLogin" method="post">
+
+    <!--    id:<input type="text" name="id"><br>-->
+    管理员用户名:<input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    <!--    <%&#45;&#45;前后端 spring的数据传递，要求名字一样，在controller层的控制器也有一样名字的参数的时候可以传递，-->
+    <!--    不然的话会直接报错，，，读不出对应的参数&#45;&#45;%>-->
+    <br>
+    <div>
+        <input type="submit" value="登录">
+        <!--        这里a标签不能指定，，文件名跳转，只能是想设置路由一样直接使用controller跳转，没有a标签直接跳转这个说法-->
+        <a href="/register">注册</a>
+    </div>
+
+</form>
+
+</body>
+</html>
